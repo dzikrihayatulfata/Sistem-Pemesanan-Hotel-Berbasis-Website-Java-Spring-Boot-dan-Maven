@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Penambahan Jenis Kamar</title>
+    <link rel="stylesheet" href="/css/recap.css">
+</head>
+<body>
+    <h1>Penambahan Jenis Kamar</h1>
+    <a href="/namakamar/add" class="btn">Tambah Jenis Kamar</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="university : ${nameKamars}">
+                <td th:text="${university.id}"></td>
+                <td th:text="${university.namakamar}"></td>
+            </tr>
+        </tbody>
+    </table>    
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Kamar</title>
+    <link rel="stylesheet" href="/css/recap.css">
+</head>
+<body>
+    <h1>Tambah Kamar</h1>
+    <form action="#" th:action="@{/namakamar/save}" th:object="${namaKamar}" method="post">
+        <label for="namakamar">Nama Kamar:</label>
+        <input type="text" id="namakamar" name="namakamar" th:field="*{namakamar}" required>
+        
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>

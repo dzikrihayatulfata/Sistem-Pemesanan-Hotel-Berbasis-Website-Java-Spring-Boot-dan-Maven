@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background: url('/images/papua6.jpg') no-repeat center center fixed;
+    background-size: cover; /* Menjamin gambar memenuhi seluruh layar */
+    animation: gradient-animation 10s ease infinite; /* Efek gradasi bergerak */
+}
+.queue-card {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 350px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.queue-card h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #121212;
+}
+.queue-card p {
+    margin: 8px 0;
+    font-size: 0.9em;
+    color: #555;
+}
+.queue-card .highlight {
+    font-weight: bold;
+    color: #121212;
+}
+.divider {
+    border-top: 1px solid #ddd;
+    margin: 16px 0;
+}
+
+.payment-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.payment-button:hover {
+    background-color: #45a049;
+}

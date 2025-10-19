@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Booking Form</title>
+    <link rel="stylesheet" href="/css/jenis.css">
+</head>
+<body>
+    <div class="container">
+        <div class="booking-form">
+            <h2>Hotel Booking Form</h2>
+            <form th:action="@{/x}" method="post" th:object="${bookInfo}" class="form-group">
+                <label for="nama">Full Name:</label>
+                <input type="text" id="nama" name="nama" th:field="*{nama}" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" th:field="*{email}" required>
+
+                <label for="handphone">Phone Number:</label>
+                <input type="text" id="handphone" name="handphone" th:field="*{handphone}" required>
+
+                <label for="checkin">Check-in Date:</label>
+                <input type="date" id="checkin" name="checkin"  th:field="*{checkin}" required>
+
+                <label for="checkout">Check-out Date:</label>
+                <input type="date" id="checkout" name="checkout" th:field="*{checkout}" required>
+
+                <label for="orang">Number of Guests:</label>
+                <input type="number" id="orang" name="orang" min="1" th:field="*{orang}" required>
+                <br/>
+                <label for="namakamarr"> Nama Kamar yang anda pilih</label>
+                <select id="namakamarr" name="namakamarr.id" th:field="*{namakamarr.id}" required>
+                    <option th:each="namakamarr : ${namaKamars}"
+                            th:if="${namakamarr.namakamar == 'Royal Suite'}" 
+                            th:value="${namakamarr.id}" 
+                            th:text="${namakamarr.namakamar}">
+                    </option>
+                </select>
+
+                <label for="kamarr">Pilih No Kamar</label>
+                <select id="kamarr" name="kamarr.id" th:field="*{kamarr.id}" required>
+                    <option th:each="kamarr : ${kamars}" 
+                            th:value="${kamarr.id}" 
+                            th:text="${kamarr.kamar}">
+                    </option>
+                </select>  
+            <br/>
+            <button type="submit" class="Bayar">Bayar</button>
+            </form>
+        </div>
+
+        <!-- Hotel Details with Image and Price -->
+        <div class="hotel-details">
+            <img src="images/hotel-5.jpeg" alt="Hotel Room Photo">
+            <p class="price">Rp.800.000 per night</p>
+        </div>
+    </div>
+</body>
+</html>

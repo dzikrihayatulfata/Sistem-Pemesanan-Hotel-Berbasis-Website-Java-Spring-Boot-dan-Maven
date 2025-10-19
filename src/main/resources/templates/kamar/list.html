@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomor Kamar</title>
+    <link rel="stylesheet" href="/css/recapx.css">
+</head>
+<body>
+    <h1>Nomor Kamar</h1>
+    <a href="/kamar/add" class="btn">Tambah Nomor Kamar</a>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="university : ${kamars}">
+                <td th:text="${university.id}"></td>
+                <td th:text="${university.kamar}"></td>
+            </tr>
+        </tbody>
+    </table>    
+</body>
+</html>

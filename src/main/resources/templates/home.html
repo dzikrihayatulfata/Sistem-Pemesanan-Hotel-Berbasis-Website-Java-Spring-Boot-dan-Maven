@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/table.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
+    <title>Contoh Halaman HTML</title>
+</head>
+<body>
+    <div class="first-box">
+        <h2>All Karyawan</h2>
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Nik</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Password</th>
+                    <th>Id department</th>
+                </tr>
+            </thead>
+            <tbody th:each="k, no : ${karList}">
+                <tr>
+                    <td th:text="${no.count}"></td>
+                    <td th:text="${k.getNik()}"></td>
+                    <td th:text="${k.getFirstname()}"></td>
+                    <td th:text="${k.getLastname()}"></td>
+                    <td th:text="${k.getPassword()}"></td>
+                    <td th:text="${k.getId_department()}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="second-box">
+        <div id="feedback-form">
+            <h2 class="header">Form Management</h2>
+            <form th:action="@{/home/submit/{id}(id=${karRec?.getId()})}" 
+            method="post" 
+            th:object="${karInfo}" 
+            class="form-group">
+            
+                <label for="id" class="form-label">Id</label>
+                <input
+                    type="number"
+                    id="id"
+                    name="id"
+                    th:value="${karRec != null ? karRec.getId() : '1'}"
+                    readonly
+                />
+                <label for="nik" class="form-label">Nik</label>
+                <input
+                    type="text"
+                    id="nik"
+                    name="nik"
+                    th:value="${karRec?.getNik()}"
+                    required
+                />
+                <label for="Firstname" class="form-label">First Name</label>
+                <input
+                    type="text"
+                    id="Firstname"
+                    name="Firstname"
+                    th:value="${karRec?.getFirstname()}"
+                    required
+                />
+                <label for="Lastname" class="form-label">Last Name</label>
+                <input
+                    type="text"
+                    id="Lastname"
+                    name="Lastname"
+                    th:value="${karRec?.getLastname()}"
+                    required
+                />
+                
+                <label for="password" class="form-label">Password</label>
+                <input
+                    type="text"
+                    id="password"
+                    name="password"
+                    th:value="${karRec?.getPassword()}"
+                    required
+                />
+                <label for="Id_department" class="form-label">Id Department</label>
+                <input
+                    type="text"
+                    id="Id_department"
+                    name="Id_department"
+                    th:value="${karRec?.getId_department()}"
+                    required
+                />
+                <button type="submit" class="btn btn-primary" name="add">Add</button>
+                <button type="submit" class="btn btn-primary" name="edit">Edit</button>
+                <button type="submit" class="btn btn-primary" name="delete">Delete</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

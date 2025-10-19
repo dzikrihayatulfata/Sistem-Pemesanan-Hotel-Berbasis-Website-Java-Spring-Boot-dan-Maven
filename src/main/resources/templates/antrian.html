@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>No Antrian</title>
+    <link href="/css/antrian.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <div class="queue-card">
+        <p class="highlight">Kode Booking Hotel Pesona Papua</p>
+        <!-- Tampilkan ID dari lastPembayaran -->
+        <h1 th:text="${lastPembayaran != null ? lastPembayaran.id : 'ID tidak tersedia'}"></h1>
+        <p class="highlight">Berikan kode booking ini ke resepsionis di Hotel Pesona Papua</p>
+        <br>
+        <a href="/menu" class="payment-button">Kembali ke menu</a>
+    </div>
+</body>
+</html>

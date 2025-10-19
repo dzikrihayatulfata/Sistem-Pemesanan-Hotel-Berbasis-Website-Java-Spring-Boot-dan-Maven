@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Registrasi</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/table.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
+    <link rel="stylesheet" href="/css/recap.css">
+</head>
+<body>
+
+<div class="table-container">
+    <h2>Data Data Registrasi</h2>
+    <table class="styled-table">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody th:each="reg, no : ${regList}">
+            <tr>
+                <td th:text="${no.count}"></td> 
+                <td th:text="${reg.nama}"></td> 
+                <td th:text="${reg.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+    <h2>Data Data hotel booking pesona papua</h2>
+    <table class="styled-table">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>Handphone</th>
+            <th>Check-In</th>
+            <th>Check-Out</th>
+            <th>Orang</th>
+            <th>Kamar</th>
+            <th>Nama Kamar</th>
+        </tr>
+    </thead>
+    <tbody th:each="boo, no : ${booList}">
+        <tr>
+            <td th:text="${no.count}"></td> 
+            <td th:text="${boo.nama}"></td> 
+            <td th:text="${boo.email}"></td>
+            <td th:text="${boo.handphone}"></td> 
+            <td th:text="${boo.checkin}"></td>
+            <td th:text="${boo.checkout}"></td>
+            <td th:text="${boo.orang}"></td> 
+            <td th:text="${boo.kamarr.kamar}"></td>
+            <td th:text="${boo.namakamarr.namakamar}"></td>
+        </tr>
+    </tbody>
+    </table>
+    <h2>Data Data hotel pembayaran pesona papua</h2>
+    <table class="styled-table">
+    <thead>
+        <tr>
+            <th>Kode pembayaran</th>
+            <th>Vitual account</th>
+            <th>Metode pembayaran</th>
+        </tr>
+    </thead>
+    <tbody th:each="pem : ${pemList}">
+        <tr>
+            <td th:text="${pem.id}"></td> 
+            <td th:text="${pem.idtransaksi}"></td> 
+            <td th:text="${pem.metodepembayarann.metodebayar}"></td>
+        </tr>
+    </tbody>
+    </table>    
+</div>
+<a href="/namakamar" class="btn">Tambah Jenis Kamar</a>
+<a href="/kamar" class="btn">Tambah Nomor Kamar</a>
+<a href="/metodepembayaran" class="btn">metode Pembayaran</a>
+</body>
+</html>

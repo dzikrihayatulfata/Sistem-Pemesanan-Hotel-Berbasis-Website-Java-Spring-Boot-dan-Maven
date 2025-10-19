@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran Hotel</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/stylePayment.css}">
+</head>
+<body>
+    <div class="payment-container">
+        <div class="payment-box">
+            <h2>Pembayaran Hotel Pesona Papua</h2>
+            <form action="/bayar" method="post" th:object="${pembayaranInfo}" >
+
+                <label for="idtransaksi">Masukkan Id transaksi</label>
+                <input type="idtransaksi" id="idtransaksi" name="idtransaksi" th:field="*{idtransaksi}" required>
+            </br>
+                <label for="metodepembayarann">Metode Pembayaran</label>
+                <select  id="metodepembayarann" name="metodepembayarann.id" th:field="*{metodepembayarann.id}">
+                    <option th:each="metodepembayarann : ${metodePembayarans}" 
+                    th:value="${metodepembayarann.id}" 
+                    th:text="${metodepembayarann.metodebayar}">
+                    </option>
+                </select>
+
+
+                <button type="submit" class="payment-button">Bayar Sekarang</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
